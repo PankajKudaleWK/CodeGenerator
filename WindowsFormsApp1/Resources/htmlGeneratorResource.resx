@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="attrDateField" xml:space="preserve">
+    <value>wkp-date</value>
+  </data>
+  <data name="attrKOptionsForDropdown" xml:space="preserve">
+    <value>k-options="{0}"</value>
+  </data>
+  <data name="attrKOptionValueForDropdownViewData" xml:space="preserve">
+    <value>ctrl.populateDropDownList(null, @Html.Raw(ViewData["{0}"]).ToString().Replace("\"", "\'"))</value>
+  </data>
+  <data name="attrLookupMultiple" xml:space="preserve">
+    <value>multiple="true"</value>
+  </data>
+  <data name="attrMaxLength" xml:space="preserve">
+    <value>maxlength="{0}"</value>
+  </data>
+  <data name="attrMonthField" xml:space="preserve">
+    <value>wkp-mes-ano</value>
+  </data>
+  <data name="attrNumberMax" xml:space="preserve">
+    <value>k-min="{0}"</value>
+  </data>
+  <data name="attrNumberMin" xml:space="preserve">
+    <value>k-max="{0}"</value>
+  </data>
+  <data name="attrNumberStep" xml:space="preserve">
+    <value>k-step="{0}"</value>
+  </data>
+  <data name="attrRequired" xml:space="preserve">
+    <value>ng-required="true"</value>
+  </data>
+  <data name="attrTextValueForDropdown" xml:space="preserve">
+    <value>k-data-value-field="'Value'"
+k-data-text-field="'Text'"</value>
+  </data>
+  <data name="fieldDateMonth" xml:space="preserve">
+    <value>&lt;input id={{{{ctrl.form.fields.{0}.fieldName}}}}
+                            name={{{{ctrl.form.fields.{0}.fieldName}}}}
+                            kendo-date-picker
+                            {1}
+                            ng-model="ctrl.{2}.{0}"
+                            ng-model-options="{{ updateOn: 'default' }}"
+                            ng-disabled="ctrl.pageMode.detail"
+                            ng-change=""
+                            k-min=""
+                            k-max=""
+                            k-rebind=""
+                    /&gt;</value>
+  </data>
+  <data name="fieldDropdown" xml:space="preserve">
+    <value>&lt;input kendo-drop-down-list 
+                   id={{{{ctrl.form.fields.{0}.fieldName}}}}
+                   name={{{{ctrl.form.fields.{0}.fieldName}}}}
+                   {1}      
+                   ng-disabled="ctrl.pageMode.detail"
+                   class="k-textbox"
+                   {2}
+                   ng-model="ctrl.{3}.{0}"
+                   /&gt;</value>
+  </data>
+  <data name="fieldLookup" xml:space="preserve">
+    <value>&lt;wkp-generic-lookup id={{{{ctrl.form.fields.{0}.fieldName}}}}
+                            name={{{{ctrl.form.fields.{0}.fieldName}}}}
+                            placeholder="@SharedResource.Selecione"
+                            title="{4}"
+                            {1}
+                            options="ctrl.{2}"
+                            accessors="ctrl.{2}.accessors"
+                            is-disabled="ctrl.pageMode.detail"
+                            selected-data="ctrl.{3}.{0}"&gt;
+&lt;/wkp-generic-lookup&gt;</value>
+  </data>
+  <data name="fieldNumber" xml:space="preserve">
+    <value>&lt;input id={{{{ctrl.form.fields.{0}.fieldName}}}}
+                   name={{{{ctrl.form.fields.{0}.fieldName}}
+}}                   ng-disabled="ctrl.pageMode.detail"
+                   type="number"
+                   ng-model="ctrl.{1}.{0}"
+                   k-ng-model="ctrl.{1}.{0}"
+                   kendo-numeric-text-box
+                   k-format="'n0'"
+                   {2} {3} {4} ng-model-options="{{updateOn: 'blur'}}" 
+                   k-on-change="" /&gt;</value>
+  </data>
+  <data name="fieldTextArea" xml:space="preserve">
+    <value>&lt;textarea id={{{{ctrl.form.fields.{0}.fieldName}}}}
+                  name={{{{ctrl.form.fields.{0}.fieldName}}}}
+                  class="k-textbox"
+                  ng-disabled="ctrl.pageMode.detail"
+                  rows="3"
+                  {1}
+                  ng-model="ctrl.{2}.{0}"
+                  style="width:100%;resize:none;"
+                  ng-required="true"&gt;
+&lt;/textarea&gt;</value>
+  </data>
+  <data name="fieldTextBox" xml:space="preserve">
+    <value>&lt;input id={{{{ctrl.form.fields.{0}.fieldName}}}}
+ name={{{{ctrl.form.fields.{0}.fieldName}}}}
+               ng-disabled="ctrl.pageMode.detail"
+               type="text"
+               {1}
+               ng-model="ctrl.{2}.{0}"
+               ng-required="true"
+               class="k-textbox" /&gt;</value>
+  </data>
+  <data name="fieldTime" xml:space="preserve">
+    <value>&lt;input id={{{{ctrl.form.fields.{0}.fieldName}}
+}}
+	name={{{{ctrl.form.fields.{0}.fieldName}}}}
+
+	ng-disabled="ctrl.pageMode.detail"
+
+	type="text"
+
+	maxlength="8"
+
+	wkp-time-picker-mask
+                   
+	kendo-time-picker
+                   
+	ng-model="ctrl.{1}.{0}"
+                   
+	{2}                 
+	class="k-textbox" /&gt;</value>
+  </data>
+  <data name="fieldTitle" xml:space="preserve">
+    <value>&lt;div class="row-section-title"&gt;
+        &lt;span class="section"&gt;{0}&lt;/span&gt;
+    &lt;/div&gt;</value>
+  </data>
+  <data name="tagDivClose" xml:space="preserve">
+    <value>&lt;/div&gt;</value>
+  </data>
+  <data name="tagDivStart" xml:space="preserve">
+    <value>&lt;div class="col-xs-12 {0}"&gt;</value>
+  </data>
+  <data name="tagLabel" xml:space="preserve">
+    <value>&lt;label&gt;{0}&lt;/label&gt;</value>
+  </data>
+  <data name="tagRequiredField" xml:space="preserve">
+    <value>&lt;div class="popError" ng-show="ctrl.{{{{{0}}}}}.{{{{ctrl.form.fields.{1}.fieldName}}}}.$invalid &amp;&amp; ctrl.{{{{{0}}}}}.{{{{ctrl.form.fields.{1}.fieldName}}}}.$dirty"&gt;
+            &lt;span ng-show="ctrl.{{{{{0}}}}}.{{{{ctrl.form.fields.{1}.fieldName}}}}.$error.required" class="fieldError"&gt;
+                
+            &lt;/span&gt;
+&lt;/div&gt;</value>
+  </data>
+</root>
