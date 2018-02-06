@@ -263,4 +263,71 @@ k-data-text-field="'Text'"</value>
             &lt;/span&gt;
 &lt;/div&gt;</value>
   </data>
+  <data name="initialResourceCode" xml:space="preserve">
+    <value>@{
+    string msgs = ViewData["msg"] == null ? "" : (string)ViewData["msg"];
+    string Ids = ViewData["ids"] == null ? "" : string.Join(",", (int[])ViewData["ids"]);
+
+    var initObject = new
+    {
+        resources = new
+        {
+            msg = msgs,
+        },
+        rotinaId = ViewBag.RotinaId
+    };
+}</value>
+  </data>
+  <data name="tagDivControllerStart" xml:space="preserve">
+    <value>&lt;div ng-cloak id="{0}" ng-controller="{1} as ctrl"
+     ng-init="ctrl.pageInit(@JsonConvert.SerializeObject(initObject))" ng-hidden="isLoading"&gt;</value>
+  </data>
+  <data name="tagDivErrors" xml:space="preserve">
+    <value>&lt;!-- Mensagens de Erro --&gt;
+    &lt;div class="row"&gt;
+        @Html.NgErrorSummary(@SharedResource.msgTituloAlertInconsistencia, "ctrl")
+        &lt;alert ng-repeat="alert in ctrl.alerts" type="{{alert.type}}" close="ctrl.closeAlert($index)"&gt;&lt;h4&gt;@SharedResource.msgTituloAlertSucesso&lt;/h4&gt;{{alert.msg}}&lt;/alert&gt;
+    &lt;/div&gt;</value>
+  </data>
+  <data name="tagDivToolBar" xml:space="preserve">
+    <value>&lt;div class="row"&gt;
+        &lt;wkp-generic-crud-nav-bar action-change-item="ctrl.navbar.changeItem(arg)"
+                                  action-save-entity-and-next="ctrl.navbar.saveEntityAndNext()"
+                                  action-save-entity="ctrl.navbar.saveEntity()"
+                                  action-save-entity-and-new="ctrl.navbar.saveEntityAndNew()"
+                                  action-edit-entity="ctrl.navbar.editEntity()"
+                                  action-delete-entity="ctrl.navbar.excluirEntity()"
+                                  action-back="ctrl.navbar.crudBack()"
+								  hide-back-button = "true"
+                                  is-detail="ctrl.pageMode.detail"
+                                  is-edit="ctrl.pageMode.editar"
+                                  selected-items="ctrl.parentItemIds"
+                                  current-item="ctrl.currentItem"
+                                  rotina-id="@ViewBag.RotinaId" &gt;
+            &lt;wkp-generic-more-actions-button&gt;
+            &lt;/wkp-generic-more-actions-button&gt;
+        &lt;/wkp-generic-crud-nav-bar&gt;
+    &lt;/div&gt;</value>
+  </data>
+  <data name="tagFormClose" xml:space="preserve">
+    <value>&lt;/form&gt;</value>
+  </data>
+  <data name="tagFormStart" xml:space="preserve">
+    <value>&lt;form ng-submit="" novalidate name="ctrl.{{ctrl.form.name}}" ng-init="ctrl.pageLoad('@ViewData["{0}"]', '@ViewData["isDetail"].ToString()', '@Ids')"&gt;</value>
+  </data>
+  <data name="fileJsClassStructure" xml:space="preserve">
+    <value>(function () {{
+    angular.module('')
+        .factory('classes.{0}', {0});
+
+    function {0}() {{
+        var {0}= function (parent) {{
+            this[parent.name] = parent.name;
+            {1}
+        }}
+
+        return {0};
+    }}
+}})();</value>
+  </data>
 </root>

@@ -2,6 +2,8 @@
 using CshtmlGenerator.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
 using System.Text;
 using WindowsFormsApp1.Resources;
 
@@ -11,7 +13,7 @@ namespace CshtmlGenerator.Logic
     {
         public Field GetFieldObject(string name, string title, string modelName, int length, string dropdownViewdata,
             DropdownDatasource dropdownDatasource, bool isRequired, bool isHelpIcon, string helpText, bool isMultiLookup,
-            FieldType fieldType, int min, int max, int step, int precision, string className)
+            FieldType fieldType, int min, int max, int step, int precision, string className, string idField)
         {
             return new Field
             {
@@ -30,52 +32,66 @@ namespace CshtmlGenerator.Logic
                 Precision = precision,
                 Step = step,
                 Title = title,
-                ClassName = className
+                ClassName = className,
+                IdField = idField
             };
         }
 
         public string GenerateCshtmlString(List<Field> fields)
         {
             StringBuilder cshtmlString = new StringBuilder();
-            foreach (var field in fields)
+            if (fields.Any())
             {
-                switch (field.FieldType)
-                {
-                    case FieldType.Title:
-                        cshtmlString.Append(GetTitleString(field));
-                        break;
-                    case FieldType.Textbox:
-                        cshtmlString.Append(GetTextboxString(field));
-                        break;
-                    case FieldType.TextArea:
-                        cshtmlString.Append(GetTextAreaString(field));
-                        break;
-                    case FieldType.Dropdown:
-                        cshtmlString.Append(GetDropdownString(field));
-                        break;
-                    case FieldType.Lookup:
-                        cshtmlString.Append(GetLookupString(field));
-                        break;
-                    case FieldType.Date:
-                        cshtmlString.Append(GetDateString(field, false));
-                        break;
-                    case FieldType.Month:
-                        cshtmlString.Append(GetDateString(field, true));
-                        break;
-                    case FieldType.Time:
-                        cshtmlString.Append(GetTimeString(field));
-                        break;
-                    case FieldType.Number:
-                        cshtmlString.Append(GetNumberString(field));
-                        break;
-                    case FieldType.Grid:
-                        break;
-                    default:
-                        break;
+                cshtmlString.Append(htmlGeneratorResource.initialResourceCode);
+                var controllerDivStart = string.Format(htmlGeneratorResource.tagDivControllerStart,
+                    fields.FirstOrDefault().ModelName + "Edit", fields.FirstOrDefault().ModelName + "InserirEditarController");
+                cshtmlString.Append(controllerDivStart);
+                cshtmlString.Append(htmlGeneratorResource.tagDivToolBar);
+                cshtmlString.Append(htmlGeneratorResource.tagDivErrors);
+                cshtmlString.Append(string.Format(htmlGeneratorResource.tagFormStart, fields.FirstOrDefault().IdField));
 
+                foreach (var field in fields)
+                {
+                    switch (field.FieldType)
+                    {
+                        case FieldType.Title:
+                            cshtmlString.Append(GetTitleString(field));
+                            break;
+                        case FieldType.Textbox:
+                            cshtmlString.Append(GetTextboxString(field));
+                            break;
+                        case FieldType.TextArea:
+                            cshtmlString.Append(GetTextAreaString(field));
+                            break;
+                        case FieldType.Dropdown:
+                            cshtmlString.Append(GetDropdownString(field));
+                            break;
+                        case FieldType.Lookup:
+                            cshtmlString.Append(GetLookupString(field));
+                            break;
+                        case FieldType.Date:
+                            cshtmlString.Append(GetDateString(field, false));
+                            break;
+                        case FieldType.Month:
+                            cshtmlString.Append(GetDateString(field, true));
+                            break;
+                        case FieldType.Time:
+                            cshtmlString.Append(GetTimeString(field));
+                            break;
+                        case FieldType.Number:
+                            cshtmlString.Append(GetNumberString(field));
+                            break;
+                        case FieldType.Grid:
+                            break;
+                        default:
+                            break;
+
+                    }
                 }
+
+                cshtmlString.Append(htmlGeneratorResource.tagFormClose);
+                cshtmlString.Append(htmlGeneratorResource.tagDivClose);
             }
-            GenerateFiles(cshtmlString.ToString());
             return cshtmlString.ToString();
         }
 
@@ -139,7 +155,7 @@ namespace CshtmlGenerator.Logic
             if (field.IsRequired)
             {
                 textArea.Append(string.Format(htmlGeneratorResource.tagRequiredField,
-                    field.ModelName + "inserirEditarForm", field.Name));
+                    field.ModelName + "InserirEditarForm", field.Name));
                 textArea.Append(Environment.NewLine);
             }
 
@@ -303,10 +319,12 @@ namespace CshtmlGenerator.Logic
             return number.ToString();
         }
 
-        private void GenerateFiles(string text)
+        public void GenerateCshtmlFile(string text, string modelName)
         {
             var lines = text.Split('\r');
-            System.IO.File.WriteAllLines(@"D:\WriteText.txt", lines);
+            var filePath = ConfigurationManager.AppSettings["FilePath"];
+            var fileName = modelName + "InserirEditarController" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".cshtml";
+            System.IO.File.WriteAllLines(filePath + fileName, lines);
         }
     }
 }

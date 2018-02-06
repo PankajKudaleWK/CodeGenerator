@@ -64,6 +64,8 @@
             this.btnGenerateFiles = new System.Windows.Forms.Button();
             this.txtClass = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIdField = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -108,7 +110,7 @@
             // 
             this.groupBox1.Controls.Add(this.txtMaxLength);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(26, 69);
+            this.groupBox1.Location = new System.Drawing.Point(29, 111);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(345, 95);
             this.groupBox1.TabIndex = 4;
@@ -178,7 +180,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtViewdataProperty);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(26, 185);
+            this.groupBox2.Location = new System.Drawing.Point(29, 227);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(345, 95);
             this.groupBox2.TabIndex = 11;
@@ -390,11 +392,29 @@
             this.label13.TabIndex = 21;
             this.label13.Text = "Class (other than xs)";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(150, 62);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(187, 20);
+            this.textBox1.TabIndex = 24;
+            // 
+            // txtIdField
+            // 
+            this.txtIdField.AutoSize = true;
+            this.txtIdField.Location = new System.Drawing.Point(52, 69);
+            this.txtIdField.Name = "txtIdField";
+            this.txtIdField.Size = new System.Drawing.Size(72, 13);
+            this.txtIdField.TabIndex = 23;
+            this.txtIdField.Text = "Id Field Name";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 675);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtIdField);
             this.Controls.Add(this.txtClass);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnGenerateFiles);
@@ -470,6 +490,8 @@
         private System.Windows.Forms.Button btnGenerateFiles;
         private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label txtIdField;
     }
 }
 

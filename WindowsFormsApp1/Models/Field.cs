@@ -20,5 +20,6 @@ namespace CshtmlGenerator.Models
         public int Step { get; set; }
         public int Precision { get; set; }
         public string ClassName { get; set; }
+        public string IdField { get; set; }
     }
 }

@@ -10,11 +10,14 @@ namespace CshtmlGenerator
     {
         private List<Field> _fields;
         private Logic.CshtmlGenerator _cshtmlGenerator;
+        private Logic.JsClassGenerator _jsClassGenerator;
+
         public Form1()
         {
             InitializeComponent();
             _fields = new List<Field>();
             _cshtmlGenerator = new Logic.CshtmlGenerator();
+            _jsClassGenerator = new Logic.JsClassGenerator();
             cmbFieldType.DataSource = System.Enum.GetValues(typeof(FieldType));
             cmbDropdownDataSource.DataSource = System.Enum.GetValues(typeof(DropdownDatasource));
             var bindingList = new BindingList<Field>(_fields);
@@ -37,7 +40,7 @@ namespace CshtmlGenerator
             var field = _cshtmlGenerator.GetFieldObject(txtFieldName.Text, txtFieldTitle.Text, txtModelName.Text,
                 maxLength, txtViewdataProperty.Text, dropdownDataSource, cbRequiredField.Checked,
                 cbHelpIcon.Checked, txtHelpIconText.Text, cbMultiLookup.Checked, fieldType,
-                min, max, step, precision, txtClass.Text);
+                min, max, step, precision, txtClass.Text, txtIdField.Text);
 
             _fields.Add(field);
         }
@@ -74,7 +77,11 @@ namespace CshtmlGenerator
 
         private void btnGenerateFiles_Click(object sender, System.EventArgs e)
         {
-            var result = _cshtmlGenerator.GenerateCshtmlString(_fields);
+            var cshtmlFileText = _cshtmlGenerator.GenerateCshtmlString(_fields);
+            var jsClassFileText = _jsClassGenerator.GetJsClassString(_fields);
+
+            _cshtmlGenerator.GenerateCshtmlFile(cshtmlFileText, txtModelName.Text);
+            _jsClassGenerator.GenerateJsFile(jsClassFileText, txtModelName.Text);
         }
     }
 }

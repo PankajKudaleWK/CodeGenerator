@@ -304,6 +304,48 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (function () {{
+        ///    angular.module(&apos;&apos;)
+        ///        .factory(&apos;classes.{0}&apos;, {0});
+        ///
+        ///    function {0}() {{
+        ///        var {0}= function (parent) {{
+        ///            this[parent.name] = parent.name;
+        ///            {1}
+        ///        }}
+        ///
+        ///        return {0};
+        ///    }}
+        ///}})();.
+        /// </summary>
+        internal static string fileJsClassStructure {
+            get {
+                return ResourceManager.GetString("fileJsClassStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @{
+        ///    string msgs = ViewData[&quot;msg&quot;] == null ? &quot;&quot; : (string)ViewData[&quot;msg&quot;];
+        ///    string Ids = ViewData[&quot;ids&quot;] == null ? &quot;&quot; : string.Join(&quot;,&quot;, (int[])ViewData[&quot;ids&quot;]);
+        ///
+        ///    var initObject = new
+        ///    {
+        ///        resources = new
+        ///        {
+        ///            msg = msgs,
+        ///        },
+        ///        rotinaId = ViewBag.RotinaId
+        ///    };
+        ///}.
+        /// </summary>
+        internal static string initialResourceCode {
+            get {
+                return ResourceManager.GetString("initialResourceCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;/div&gt;.
         /// </summary>
         internal static string tagDivClose {
@@ -313,11 +355,67 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;div ng-cloak id=&quot;{0}&quot; ng-controller=&quot;{1} as ctrl&quot;
+        ///     ng-init=&quot;ctrl.pageInit(@JsonConvert.SerializeObject(initObject))&quot; ng-hidden=&quot;isLoading&quot;&gt;.
+        /// </summary>
+        internal static string tagDivControllerStart {
+            get {
+                return ResourceManager.GetString("tagDivControllerStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!-- Mensagens de Erro --&gt;
+        ///    &lt;div class=&quot;row&quot;&gt;
+        ///        @Html.NgErrorSummary(@SharedResource.msgTituloAlertInconsistencia, &quot;ctrl&quot;)
+        ///        &lt;alert ng-repeat=&quot;alert in ctrl.alerts&quot; type=&quot;{{alert.type}}&quot; close=&quot;ctrl.closeAlert($index)&quot;&gt;&lt;h4&gt;@SharedResource.msgTituloAlertSucesso&lt;/h4&gt;{{alert.msg}}&lt;/alert&gt;
+        ///    &lt;/div&gt;.
+        /// </summary>
+        internal static string tagDivErrors {
+            get {
+                return ResourceManager.GetString("tagDivErrors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;div class=&quot;col-xs-12 {0}&quot;&gt;.
         /// </summary>
         internal static string tagDivStart {
             get {
                 return ResourceManager.GetString("tagDivStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;div class=&quot;row&quot;&gt;
+        ///        &lt;wkp-generic-crud-nav-bar action-change-item=&quot;ctrl.navbar.changeItem(arg)&quot;
+        ///                                  action-save-entity-and-next=&quot;ctrl.navbar.saveEntityAndNext()&quot;
+        ///                                  action-save-entity=&quot;ctrl.navbar.saveEntity()&quot;
+        ///                                  action-save-entity-and-new=&quot;ctrl.navbar.saveEntityAndNew()&quot;
+        ///                                  action-edit-entity=&quot;ctrl.navbar.editEntity()&quot;
+        ///                                  action-delete-entity= [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string tagDivToolBar {
+            get {
+                return ResourceManager.GetString("tagDivToolBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;/form&gt;.
+        /// </summary>
+        internal static string tagFormClose {
+            get {
+                return ResourceManager.GetString("tagFormClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;form ng-submit=&quot;&quot; novalidate name=&quot;ctrl.{{ctrl.form.name}}&quot; ng-init=&quot;ctrl.pageLoad(&apos;@ViewData[&quot;{0}&quot;]&apos;, &apos;@ViewData[&quot;isDetail&quot;].ToString()&apos;, &apos;@Ids&apos;)&quot;&gt;.
+        /// </summary>
+        internal static string tagFormStart {
+            get {
+                return ResourceManager.GetString("tagFormStart", resourceCulture);
             }
         }
         
