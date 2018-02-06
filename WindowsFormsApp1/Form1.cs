@@ -11,6 +11,7 @@ namespace CshtmlGenerator
         private List<Field> _fields;
         private Logic.CshtmlGenerator _cshtmlGenerator;
         private Logic.JsClassGenerator _jsClassGenerator;
+        private Logic.JsControllerGenerator _jsControllerGenerator;
 
         public Form1()
         {
@@ -18,6 +19,7 @@ namespace CshtmlGenerator
             _fields = new List<Field>();
             _cshtmlGenerator = new Logic.CshtmlGenerator();
             _jsClassGenerator = new Logic.JsClassGenerator();
+            _jsControllerGenerator = new Logic.JsControllerGenerator();
             cmbFieldType.DataSource = System.Enum.GetValues(typeof(FieldType));
             cmbDropdownDataSource.DataSource = System.Enum.GetValues(typeof(DropdownDatasource));
             var bindingList = new BindingList<Field>(_fields);
@@ -79,9 +81,11 @@ namespace CshtmlGenerator
         {
             var cshtmlFileText = _cshtmlGenerator.GenerateCshtmlString(_fields);
             var jsClassFileText = _jsClassGenerator.GetJsClassString(_fields);
+            var jsControllerFileText = _jsControllerGenerator.GenerateJsControllerString(_fields);
 
             _cshtmlGenerator.GenerateCshtmlFile(cshtmlFileText, txtModelName.Text);
             _jsClassGenerator.GenerateJsFile(jsClassFileText, txtModelName.Text);
+            _jsControllerGenerator.GenerateJsControllerFile(jsControllerFileText, txtModelName.Text);
         }
     }
 }

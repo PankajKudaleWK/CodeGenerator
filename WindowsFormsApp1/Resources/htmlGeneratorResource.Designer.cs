@@ -257,7 +257,6 @@ namespace WindowsFormsApp1.Resources {
         ///               type=&quot;text&quot;
         ///               {1}
         ///               ng-model=&quot;ctrl.{2}.{0}&quot;
-        ///               ng-required=&quot;true&quot;
         ///               class=&quot;k-textbox&quot; /&gt;.
         /// </summary>
         internal static string fieldTextBox {

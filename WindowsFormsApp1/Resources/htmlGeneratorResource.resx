@@ -219,7 +219,6 @@ k-data-text-field="'Text'"</value>
                type="text"
                {1}
                ng-model="ctrl.{2}.{0}"
-               ng-required="true"
                class="k-textbox" /&gt;</value>
   </data>
   <data name="fieldTime" xml:space="preserve">

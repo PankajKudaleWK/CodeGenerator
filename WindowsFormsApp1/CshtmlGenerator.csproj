@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="Logic\CshtmlGenerator.cs" />
     <Compile Include="Logic\JsClassGenerator.cs" />
+    <Compile Include="Logic\JsControllerGenerator.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +64,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>htmlGeneratorResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\JsControllerResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JsControllerResource.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -79,6 +85,10 @@
     <EmbeddedResource Include="Resources\htmlGeneratorResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>htmlGeneratorResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\JsControllerResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JsControllerResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
