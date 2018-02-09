@@ -2,6 +2,7 @@
 using CshtmlGenerator.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CshtmlGenerator
@@ -86,6 +87,12 @@ namespace CshtmlGenerator
             _cshtmlGenerator.GenerateCshtmlFile(cshtmlFileText, txtModelName.Text);
             _jsClassGenerator.GenerateJsFile(jsClassFileText, txtModelName.Text);
             _jsControllerGenerator.GenerateJsControllerFile(jsControllerFileText, txtModelName.Text);
+
+            if (_fields.Any(f => f.FieldType == FieldType.Lookup))
+            {
+                var serviceFileContent = _jsControllerGenerator.GetServiceString(_fields);
+                _jsControllerGenerator.GenerateJsServiceFile(serviceFileContent, txtModelName.Text);
+            }
         }
     }
 }

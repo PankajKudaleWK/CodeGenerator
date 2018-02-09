@@ -19,10 +19,9 @@ namespace CshtmlGenerator.Logic
             {
                 if (field.FieldType != Enum.FieldType.Title)
                 {
-                    properties.Append("this.");
+                    properties.Append("\r this.");
                     properties.Append(field.Name);
                     properties.Append(" = null;");
-                    properties.Append(Environment.NewLine);
                 }
             }
             if (!string.IsNullOrEmpty(properties.ToString()))

@@ -308,11 +308,9 @@ namespace WindowsFormsApp1.Resources {
         ///        .factory(&apos;classes.{0}&apos;, {0});
         ///
         ///    function {0}() {{
-        ///        var {0}= function (parent) {{
-        ///            this[parent.name] = parent.name;
-        ///            {1}
+        ///        var {0} = function (parent) {{
+        ///            this[parent.name] = parent.name; {1}
         ///        }}
-        ///
         ///        return {0};
         ///    }}
         ///}})();.
@@ -324,7 +322,11 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to @{
+        ///   Looks up a localized string similar to @using Wkp.Framework.Web.Mvc.Helpers;
+        ///@using System.Web.Mvc.Html;
+        ///@using Newtonsoft.Json;
+        ///
+        ///@{
         ///    string msgs = ViewData[&quot;msg&quot;] == null ? &quot;&quot; : (string)ViewData[&quot;msg&quot;];
         ///    string Ids = ViewData[&quot;ids&quot;] == null ? &quot;&quot; : string.Join(&quot;,&quot;, (int[])ViewData[&quot;ids&quot;]);
         ///
@@ -333,10 +335,12 @@ namespace WindowsFormsApp1.Resources {
         ///        resources = new
         ///        {
         ///            msg = msgs,
+        ///            labelForTabForSingleRecord = &quot;&quot;,
+        ///			labelForTabForMultiRecords = &quot;&quot;,
+        ///			labelForTabForNovoCreation = &quot;&quot;,
+        ///			
         ///        },
-        ///        rotinaId = ViewBag.RotinaId
-        ///    };
-        ///}.
+        ///        rotina [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string initialResourceCode {
             get {
@@ -410,7 +414,7 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;form ng-submit=&quot;&quot; novalidate name=&quot;ctrl.{{ctrl.form.name}}&quot; ng-init=&quot;ctrl.pageLoad(&apos;@ViewData[&quot;{0}&quot;]&apos;, &apos;@ViewData[&quot;isDetail&quot;].ToString()&apos;, &apos;@Ids&apos;)&quot;&gt;.
+        ///   Looks up a localized string similar to &lt;form ng-submit=&quot;&quot; novalidate name=&quot;ctrl.{{{{ctrl.form.name}}}}&quot; ng-init=&quot;ctrl.pageLoad(&apos;@ViewData[&quot;{0}&quot;]&apos;, &apos;@ViewData[&quot;isDetail&quot;].ToString()&apos;, &apos;@Ids&apos;)&quot;&gt;.
         /// </summary>
         internal static string tagFormStart {
             get {

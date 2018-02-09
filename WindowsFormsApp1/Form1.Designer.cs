@@ -156,14 +156,14 @@
             this.txtFieldName.Location = new System.Drawing.Point(539, 84);
             this.txtFieldName.Name = "txtFieldName";
             this.txtFieldName.Size = new System.Drawing.Size(187, 20);
-            this.txtFieldName.TabIndex = 7;
+            this.txtFieldName.TabIndex = 5;
             // 
             // txtFieldTitle
             // 
             this.txtFieldTitle.Location = new System.Drawing.Point(539, 47);
             this.txtFieldTitle.Name = "txtFieldTitle";
             this.txtFieldTitle.Size = new System.Drawing.Size(187, 20);
-            this.txtFieldTitle.TabIndex = 8;
+            this.txtFieldTitle.TabIndex = 4;
             // 
             // label6
             // 
@@ -217,7 +217,7 @@
             this.cbHelpIcon.Location = new System.Drawing.Point(624, 156);
             this.cbHelpIcon.Name = "cbHelpIcon";
             this.cbHelpIcon.Size = new System.Drawing.Size(72, 17);
-            this.cbHelpIcon.TabIndex = 14;
+            this.cbHelpIcon.TabIndex = 8;
             this.cbHelpIcon.Text = "Help Icon";
             this.cbHelpIcon.UseVisualStyleBackColor = true;
             // 
@@ -227,7 +227,7 @@
             this.cbRequiredField.Location = new System.Drawing.Point(463, 156);
             this.cbRequiredField.Name = "cbRequiredField";
             this.cbRequiredField.Size = new System.Drawing.Size(94, 17);
-            this.cbRequiredField.TabIndex = 15;
+            this.cbRequiredField.TabIndex = 7;
             this.cbRequiredField.Text = "Required Field";
             this.cbRequiredField.UseVisualStyleBackColor = true;
             // 
@@ -337,7 +337,7 @@
             this.txtHelpIconText.Location = new System.Drawing.Point(561, 190);
             this.txtHelpIconText.Name = "txtHelpIconText";
             this.txtHelpIconText.Size = new System.Drawing.Size(187, 20);
-            this.txtHelpIconText.TabIndex = 17;
+            this.txtHelpIconText.TabIndex = 9;
             // 
             // label11
             // 
@@ -353,7 +353,7 @@
             this.btnAddField.Location = new System.Drawing.Point(800, 27);
             this.btnAddField.Name = "btnAddField";
             this.btnAddField.Size = new System.Drawing.Size(126, 42);
-            this.btnAddField.TabIndex = 18;
+            this.btnAddField.TabIndex = 10;
             this.btnAddField.Text = "Add Field";
             this.btnAddField.UseVisualStyleBackColor = true;
             this.btnAddField.Click += new System.EventHandler(this.btnAddField_Click);
@@ -381,7 +381,7 @@
             this.txtClass.Location = new System.Drawing.Point(570, 121);
             this.txtClass.Name = "txtClass";
             this.txtClass.Size = new System.Drawing.Size(158, 20);
-            this.txtClass.TabIndex = 22;
+            this.txtClass.TabIndex = 6;
             // 
             // label13
             // 
@@ -397,7 +397,7 @@
             this.textBox1.Location = new System.Drawing.Point(150, 62);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(187, 20);
-            this.textBox1.TabIndex = 24;
+            this.textBox1.TabIndex = 2;
             // 
             // txtIdField
             // 

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="callLoadLookupDataFuntion" xml:space="preserve">
+    <value>initialiseLookups();</value>
+  </data>
   <data name="controllerFunctionStructure" xml:space="preserve">
     <value>function {0}($scope, $controller,
 	form,
@@ -128,7 +131,8 @@
         lookupData,
         lookupConstants,
         tipousuario,
-	globalService){{
+	globalService,
+         inserirEditarService){{
         {1}    
 
     }}</value>
@@ -165,14 +169,14 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
             
             {0}= new {0}(ctrl.parent);
             ctrl[ctrl.parent.name] = {0};
-
+            {2}
         }}</value>
   </data>
   <data name="definePageLoad" xml:space="preserve">
-    <value>ctrl.pageLoad = function (id, detail, ids) {{
+    <value>ctrl.pageLoad = function (id, detail, ids) {
             ctrl.__proto__.pageLoad.call(this, id, detail, ids)
                 .then(ctrl.obterEntitySuccessCallback, ctrl.obterEntityErrorCallback);
-        }}</value>
+        }</value>
   </data>
   <data name="depedencyInjection" xml:space="preserve">
     <value>{0}.$inject = ['$scope', '$controller', 
@@ -185,8 +189,38 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
         'wkp.framework.services.lookupData',
         'wkp.constants.lookupConstants',
         'wkp.constants.tipousuario',
-	'wkp.framework.services.globalService'
+	'wkp.framework.services.globalService',
+        'services.inserirEditarService'
     ]</value>
+  </data>
+  <data name="fileInserirEditarServiceStructure" xml:space="preserve">
+    <value>(function () {{
+    'use strict';
+    var serviceName = 'services.inserirEditarService';
+
+    angular.module('')
+               .factory(serviceName, inserirEdiatarService);
+
+    inserirEditarService.$inject = ['wkp.constants.navButtonsType',
+        'wkp.constants.navButtonsGroupType',
+        'wkp.framework.classes.navButton',
+        'wkp.framework.classes.navButtonGroup',
+        'wkp.framework.services.lookupData',
+        'wkp.constants.lookupConstants',
+        'wkp.framework.services.globalHttpService', '$q',
+        'wkp.framework.services.globalService',
+        'wkp.framework.constants.commonResourceConstants'];
+
+    function inserirEditarService(navButtonsType, navButtonsGroupType, NavButton, NavButtonGroup, lookupData, lookupConstants, globalHttpService, $q, globalService,commonResourceConstants) {{
+        {0}
+
+        return {{
+            {1}
+        }};
+
+	{2}
+    }}    
+}})();</value>
   </data>
   <data name="fileJsControllerStructure" xml:space="preserve">
     <value>(function () {{
@@ -198,8 +232,21 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
 
 }})();</value>
   </data>
+  <data name="functionInitialiseLookupStructure" xml:space="preserve">
+    <value>function initialiseLookups(){{
+    {0}
+}}</value>
+  </data>
   <data name="inheritControllers" xml:space="preserve">
     <value>$controller('wkp.framework.controllers.baseController', { ctrl: ctrl });
 $controller('Wkp.Framework.Controllers.inserirEditarGlobalController', { ctrl: ctrl });</value>
+  </data>
+  <data name="setLookUp" xml:space="preserve">
+    <value>var lookupinfo = {{
+                module: '', page: 'InserirEditar', name: '{0}',
+                type: lookupConstants.types.singleLookup, key: ''
+            }};
+            var lookupOptions = lookupDataService.get{0}LookupOptions();
+            {0}LookupData = new lookupData(lookupOptions, lookupinfo);</value>
   </data>
 </root>

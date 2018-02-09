@@ -61,6 +61,15 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to initialiseLookups();.
+        /// </summary>
+        internal static string callLoadLookupDataFuntion {
+            get {
+                return ResourceManager.GetString("callLoadLookupDataFuntion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to function {0}($scope, $controller,
         ///	form,
         ///	formField,
@@ -71,7 +80,8 @@ namespace WindowsFormsApp1.Resources {
         ///        lookupData,
         ///        lookupConstants,
         ///        tipousuario,
-        ///	globalService){{
+        ///	globalService,
+        ///         inserirEditarService){{
         ///        {1}    
         ///
         ///    }}.
@@ -149,10 +159,10 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ctrl.pageLoad = function (id, detail, ids) {{
+        ///   Looks up a localized string similar to ctrl.pageLoad = function (id, detail, ids) {
         ///            ctrl.__proto__.pageLoad.call(this, id, detail, ids)
         ///                .then(ctrl.obterEntitySuccessCallback, ctrl.obterEntityErrorCallback);
-        ///        }}.
+        ///        }.
         /// </summary>
         internal static string definePageLoad {
             get {
@@ -171,12 +181,35 @@ namespace WindowsFormsApp1.Resources {
         ///        &apos;wkp.framework.services.lookupData&apos;,
         ///        &apos;wkp.constants.lookupConstants&apos;,
         ///        &apos;wkp.constants.tipousuario&apos;,
-        ///	&apos;wkp.framework.services.globalService&apos;
+        ///	&apos;wkp.framework.services.globalService&apos;,
+        ///        &apos;services.inserirEditarService&apos;
         ///    ].
         /// </summary>
         internal static string depedencyInjection {
             get {
                 return ResourceManager.GetString("depedencyInjection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (function () {{
+        ///    &apos;use strict&apos;;
+        ///    var serviceName = &apos;services.inserirEditarService&apos;;
+        ///
+        ///    angular.module(&apos;&apos;)
+        ///               .factory(serviceName, inserirEdiatarService);
+        ///
+        ///    inserirEditarService.$inject = [&apos;wkp.constants.navButtonsType&apos;,
+        ///        &apos;wkp.constants.navButtonsGroupType&apos;,
+        ///        &apos;wkp.framework.classes.navButton&apos;,
+        ///        &apos;wkp.framework.classes.navButtonGroup&apos;,
+        ///        &apos;wkp.framework.services.lookupData&apos;,
+        ///        &apos;wkp.constants.lookupConstants&apos;,
+        ///        &apos;wkp.framework.services.gl [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string fileInserirEditarServiceStructure {
+            get {
+                return ResourceManager.GetString("fileInserirEditarServiceStructure", resourceCulture);
             }
         }
         
@@ -197,12 +230,37 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to function initialiseLookups(){{
+        ///    {0}
+        ///}}.
+        /// </summary>
+        internal static string functionInitialiseLookupStructure {
+            get {
+                return ResourceManager.GetString("functionInitialiseLookupStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to $controller(&apos;wkp.framework.controllers.baseController&apos;, { ctrl: ctrl });
         ///$controller(&apos;Wkp.Framework.Controllers.inserirEditarGlobalController&apos;, { ctrl: ctrl });.
         /// </summary>
         internal static string inheritControllers {
             get {
                 return ResourceManager.GetString("inheritControllers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to var lookupinfo = {{
+        ///                module: &apos;&apos;, page: &apos;InserirEditar&apos;, name: &apos;{0}&apos;,
+        ///                type: lookupConstants.types.singleLookup, key: &apos;&apos;
+        ///            }};
+        ///            var lookupOptions = lookupDataService.get{0}LookupOptions();
+        ///            {0}LookupData = new lookupData(lookupOptions, lookupinfo);.
+        /// </summary>
+        internal static string setLookUp {
+            get {
+                return ResourceManager.GetString("setLookUp", resourceCulture);
             }
         }
     }

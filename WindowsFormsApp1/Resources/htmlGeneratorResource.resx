@@ -263,7 +263,11 @@ k-data-text-field="'Text'"</value>
 &lt;/div&gt;</value>
   </data>
   <data name="initialResourceCode" xml:space="preserve">
-    <value>@{
+    <value>@using Wkp.Framework.Web.Mvc.Helpers;
+@using System.Web.Mvc.Html;
+@using Newtonsoft.Json;
+
+@{
     string msgs = ViewData["msg"] == null ? "" : (string)ViewData["msg"];
     string Ids = ViewData["ids"] == null ? "" : string.Join(",", (int[])ViewData["ids"]);
 
@@ -272,6 +276,10 @@ k-data-text-field="'Text'"</value>
         resources = new
         {
             msg = msgs,
+            labelForTabForSingleRecord = "",
+			labelForTabForMultiRecords = "",
+			labelForTabForNovoCreation = "",
+			
         },
         rotinaId = ViewBag.RotinaId
     };
@@ -312,7 +320,7 @@ k-data-text-field="'Text'"</value>
     <value>&lt;/form&gt;</value>
   </data>
   <data name="tagFormStart" xml:space="preserve">
-    <value>&lt;form ng-submit="" novalidate name="ctrl.{{ctrl.form.name}}" ng-init="ctrl.pageLoad('@ViewData["{0}"]', '@ViewData["isDetail"].ToString()', '@Ids')"&gt;</value>
+    <value>&lt;form ng-submit="" novalidate name="ctrl.{{{{ctrl.form.name}}}}" ng-init="ctrl.pageLoad('@ViewData["{0}"]', '@ViewData["isDetail"].ToString()', '@Ids')"&gt;</value>
   </data>
   <data name="fileJsClassStructure" xml:space="preserve">
     <value>(function () {{
@@ -320,11 +328,9 @@ k-data-text-field="'Text'"</value>
         .factory('classes.{0}', {0});
 
     function {0}() {{
-        var {0}= function (parent) {{
-            this[parent.name] = parent.name;
-            {1}
+        var {0} = function (parent) {{
+            this[parent.name] = parent.name; {1}
         }}
-
         return {0};
     }}
 }})();</value>
