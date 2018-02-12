@@ -21,5 +21,7 @@ namespace CshtmlGenerator.Models
         public int Precision { get; set; }
         public string ClassName { get; set; }
         public string IdField { get; set; }
+        public string GridIdField { get; set; }
+        public string GridOtherFields { get; set; }
     }
 }

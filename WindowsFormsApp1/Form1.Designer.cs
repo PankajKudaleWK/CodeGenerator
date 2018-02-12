@@ -66,11 +66,17 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtIdField = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtGridOtherdFields = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtGridIdField = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFields)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -408,11 +414,57 @@
             this.txtIdField.TabIndex = 23;
             this.txtIdField.Text = "Id Field Name";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtGridIdField);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.txtGridOtherdFields);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Location = new System.Drawing.Point(29, 355);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(345, 95);
+            this.groupBox5.TabIndex = 13;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Grid";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(26, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 13);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Other Grid Fields";
+            // 
+            // txtGridOtherdFields
+            // 
+            this.txtGridOtherdFields.Location = new System.Drawing.Point(133, 56);
+            this.txtGridOtherdFields.Name = "txtGridOtherdFields";
+            this.txtGridOtherdFields.Size = new System.Drawing.Size(178, 20);
+            this.txtGridOtherdFields.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(26, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 13);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Id Field Name";
+            // 
+            // txtGridIdField
+            // 
+            this.txtGridIdField.Location = new System.Drawing.Point(133, 26);
+            this.txtGridIdField.Name = "txtGridIdField";
+            this.txtGridIdField.Size = new System.Drawing.Size(178, 20);
+            this.txtGridIdField.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 675);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtIdField);
             this.Controls.Add(this.txtClass);
@@ -447,6 +499,8 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFields)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,6 +546,11 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label txtIdField;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox txtGridIdField;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtGridOtherdFields;
+        private System.Windows.Forms.Label label15;
     }
 }
 

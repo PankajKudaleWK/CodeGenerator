@@ -28,7 +28,7 @@ namespace CshtmlGenerator.Logic
             return jsControllerString.ToString();
         }
 
-        private static string GetFunctionBody(List<Field> fields)
+        private string GetFunctionBody(List<Field> fields)
         {
             StringBuilder functionBodyString = new StringBuilder();
 
@@ -70,10 +70,21 @@ namespace CshtmlGenerator.Logic
                 functionBodyString.Append(Environment.NewLine);
             }
 
+            if (fields.Any(f => f.FieldType == Enum.FieldType.Dropdown
+                 && f.DropdownDatasource == Enum.DropdownDatasource.ServiceCall))
+            {
+                foreach (var dropdown in fields.Where(f => f.FieldType == Enum.FieldType.Dropdown
+                 && f.DropdownDatasource == Enum.DropdownDatasource.ServiceCall))
+                {
+                    functionBodyString.Append("ctrl." + dropdown.Name + "Options = ctrl.populateDropDownList(data)");
+                    functionBodyString.Append(Environment.NewLine);
+                }
+            }
+
             return functionBodyString.ToString();
         }
 
-        private static string GetLookupFunctionDefination(List<Field> fields)
+        private string GetLookupFunctionDefination(List<Field> fields)
         {
             StringBuilder functionBody = new StringBuilder();
             var lookups = fields.Where(f => f.FieldType == Enum.FieldType.Lookup);
@@ -89,7 +100,7 @@ namespace CshtmlGenerator.Logic
             return functionBody.ToString();
         }
 
-        private static string GetFormFields(List<Field> fields)
+        private string GetFormFields(List<Field> fields)
         {
             StringBuilder formFields = new StringBuilder();
             foreach (var field in fields)
@@ -152,7 +163,7 @@ namespace CshtmlGenerator.Logic
             return serviceFile.ToString();
         }
 
-        private static string GetAllVariables(List<Field> fields)
+        private string GetAllVariables(List<Field> fields)
         {
             StringBuilder allVariables = new StringBuilder();
             foreach (var lookup in fields.Where(f => f.FieldType == Enum.FieldType.Lookup))
@@ -163,7 +174,7 @@ namespace CshtmlGenerator.Logic
             return allVariables.ToString();
         }
 
-        private static string GetReturnObjectVariables(List<Field> fields)
+        private string GetReturnObjectVariables(List<Field> fields)
         {
             StringBuilder allVariables = new StringBuilder();
             foreach (var lookup in fields.Where(f => f.FieldType == Enum.FieldType.Lookup))
@@ -174,7 +185,7 @@ namespace CshtmlGenerator.Logic
             return allVariables.ToString();
         }
 
-        private static string GetServiceFunctionBody(List<Field> fields)
+        private string GetServiceFunctionBody(List<Field> fields)
         {
             StringBuilder functionBody = new StringBuilder();
             foreach (var lookup in fields.Where(f => f.FieldType == Enum.FieldType.Lookup))
@@ -187,7 +198,7 @@ namespace CshtmlGenerator.Logic
             return functionBody.ToString();
         }
 
-        private static string SetLookupDataFunction(Field lookup)
+        private string SetLookupDataFunction(Field lookup)
         {
             StringBuilder setLookpdataFunctionBody = new StringBuilder();
             setLookpdataFunctionBody.Append(
@@ -201,7 +212,7 @@ namespace CshtmlGenerator.Logic
             return setLookpdataFunctionBody.ToString();
         }
 
-        private static string GetLookupDataFunction(Field lookup)
+        private string GetLookupDataFunction(Field lookup)
         {
             StringBuilder getFunctionBody = new StringBuilder();
             getFunctionBody.Append(string.Format("function get{0}LookupData(){{,", lookup.Name));

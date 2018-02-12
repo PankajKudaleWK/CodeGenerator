@@ -57,6 +57,7 @@
     <Compile Include="Logic\CshtmlGenerator.cs" />
     <Compile Include="Logic\JsClassGenerator.cs" />
     <Compile Include="Logic\JsControllerGenerator.cs" />
+    <Compile Include="Logic\JsDirectiveGenerator.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

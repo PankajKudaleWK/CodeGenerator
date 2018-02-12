@@ -43,7 +43,7 @@ namespace CshtmlGenerator
             var field = _cshtmlGenerator.GetFieldObject(txtFieldName.Text, txtFieldTitle.Text, txtModelName.Text,
                 maxLength, txtViewdataProperty.Text, dropdownDataSource, cbRequiredField.Checked,
                 cbHelpIcon.Checked, txtHelpIconText.Text, cbMultiLookup.Checked, fieldType,
-                min, max, step, precision, txtClass.Text, txtIdField.Text);
+                min, max, step, precision, txtClass.Text, txtIdField.Text, txtGridIdField.Text, txtGridOtherdFields.Text);
 
             _fields.Add(field);
         }
@@ -92,6 +92,15 @@ namespace CshtmlGenerator
             {
                 var serviceFileContent = _jsControllerGenerator.GetServiceString(_fields);
                 _jsControllerGenerator.GenerateJsServiceFile(serviceFileContent, txtModelName.Text);
+            }
+
+            if (_fields.Any(f => f.FieldType == FieldType.Grid))
+            {
+                var gridDirectiveFileContent = _jsControllerGenerator.GetServiceString(_fields);
+                _jsControllerGenerator.GenerateJsServiceFile(gridDirectiveFileContent, txtModelName.Text);
+
+                var gridDirectiveControllerFileContent = _jsControllerGenerator.GetServiceString(_fields);
+                _jsControllerGenerator.GenerateJsServiceFile(gridDirectiveControllerFileContent, txtModelName.Text);
             }
         }
     }

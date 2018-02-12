@@ -70,6 +70,19 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to resources=&quot;ctrl.page.resources&quot;
+        ///                           parent-methods=&quot;ctrl.parentMethods&quot;
+        ///                           parent-id=&quot;{{ctrl.currentId}}&quot;
+        ///                           page-mode=&quot;ctrl.pageMode&quot;
+        ///                           rotina-permissoes=&quot;ctrl.rotinaPermissoes&quot;.
+        /// </summary>
+        internal static string attrGridAttributes {
+            get {
+                return ResourceManager.GetString("attrGridAttributes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to k-options=&quot;{0}&quot;.
         /// </summary>
         internal static string attrKOptionsForDropdown {

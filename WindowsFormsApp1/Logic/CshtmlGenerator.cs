@@ -13,7 +13,8 @@ namespace CshtmlGenerator.Logic
     {
         public Field GetFieldObject(string name, string title, string modelName, int length, string dropdownViewdata,
             DropdownDatasource dropdownDatasource, bool isRequired, bool isHelpIcon, string helpText, bool isMultiLookup,
-            FieldType fieldType, int min, int max, int step, int precision, string className, string idField)
+            FieldType fieldType, int min, int max, int step, int precision, string className, string idField,
+            string gridIdField, string gridOtherFields)
         {
             return new Field
             {
@@ -33,7 +34,9 @@ namespace CshtmlGenerator.Logic
                 Step = step,
                 Title = title,
                 ClassName = className,
-                IdField = idField
+                IdField = idField,
+                GridIdField = gridIdField,
+                GridOtherFields = gridOtherFields
             };
         }
 
@@ -82,10 +85,10 @@ namespace CshtmlGenerator.Logic
                             cshtmlString.Append(GetNumberString(field));
                             break;
                         case FieldType.Grid:
+                            cshtmlString.Append(GetGridString(field));
                             break;
                         default:
                             break;
-
                     }
                 }
 
@@ -174,7 +177,7 @@ namespace CshtmlGenerator.Logic
                 : string.Empty;
             var attrKOptions = field.DropdownDatasource == DropdownDatasource.ViewData
                 ? string.Format(htmlGeneratorResource.attrKOptionsForDropdown, dropdownEnum)
-                : string.Format(htmlGeneratorResource.attrKOptionsForDropdown, "ctrl." + field.Name + "options");
+                : string.Format(htmlGeneratorResource.attrKOptionsForDropdown, "ctrl." + field.Name + "Options");
 
             StringBuilder dropdown = new StringBuilder();
             dropdown.Append(string.Format(htmlGeneratorResource.tagDivStart, field.ClassName));
@@ -317,6 +320,18 @@ namespace CshtmlGenerator.Logic
             number.Append(Environment.NewLine);
 
             return number.ToString();
+        }
+
+        private string GetGridString(Field field)
+        {
+            StringBuilder grid = new StringBuilder();
+            grid.Append("<" + field.Name + " ");
+            grid.Append(Environment.NewLine);
+            grid.Append(htmlGeneratorResource.attrGridAttributes + ">");
+            grid.Append(Environment.NewLine);
+            grid.Append("</" + field.Name + ">");
+            grid.Append(Environment.NewLine);
+            return grid.ToString();
         }
 
         public void GenerateCshtmlFile(string text, string modelName)

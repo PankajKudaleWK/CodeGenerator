@@ -335,4 +335,11 @@ k-data-text-field="'Text'"</value>
     }}
 }})();</value>
   </data>
+  <data name="attrGridAttributes" xml:space="preserve">
+    <value>resources="ctrl.page.resources"
+                           parent-methods="ctrl.parentMethods"
+                           parent-id="{{ctrl.currentId}}"
+                           page-mode="ctrl.pageMode"
+                           rotina-permissoes="ctrl.rotinaPermissoes"</value>
+  </data>
 </root>
