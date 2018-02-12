@@ -192,6 +192,42 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (function () {
+        ///    
+        ///	&apos;use strict&apos;
+        ///;    
+        ///	angular.module(&apos;&apos;)
+        ///    
+        ///	.directive(&apos;{0}Grid&apos;, {0}Grid);
+        ///
+        ///    
+        ///
+        ///	function {0}Grid() {
+        ///        
+        ///		return {
+        ///            
+        ///			restrict: &apos;E&apos;,
+        ///            
+        ///            templateUrl: _userContext.endpoints.StaticContent + &apos;/Views/{0}GridDirective.html&apos;,
+        ///
+        ///	                controller: &apos;controllers.monitoramentoPainelGridDirectiveController&apos;,
+        ///
+        ///			scope: {
+        ///				parentMethods: &apos;=&apos;,
+        ///
+        ///				parentId: &apos;@&apos;,
+        ///
+        ///		                resources: &apos;=&apos;,
+        ///
+        ///		                pageMode: &apos;= [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string fileGridDirectiveStructure {
+            get {
+                return ResourceManager.GetString("fileGridDirectiveStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to (function () {{
         ///    &apos;use strict&apos;;
         ///    var serviceName = &apos;services.inserirEditarService&apos;;

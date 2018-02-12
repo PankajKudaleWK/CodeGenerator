@@ -193,6 +193,50 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
         'services.inserirEditarService'
     ]</value>
   </data>
+  <data name="fileGridDirectiveStructure" xml:space="preserve">
+    <value>(function () {
+    
+	'use strict'
+;    
+	angular.module('')
+    
+	.directive('{0}Grid', {0}Grid);
+
+    
+
+	function {0}Grid() {
+        
+		return {
+            
+			restrict: 'E',
+            
+            templateUrl: _userContext.endpoints.StaticContent + '/Views/{0}GridDirective.html',
+
+	                controller: 'controllers.monitoramentoPainelGridDirectiveController',
+
+			scope: {
+				parentMethods: '=',
+
+				parentId: '@',
+
+		                resources: '=',
+
+		                pageMode: '=',
+		
+                rotinaPermissoes: '='
+	    
+            },
+	    
+            controllerAs: 'ctrl',
+	    
+            bindToController: true
+        
+		};
+
+   }
+
+})();</value>
+  </data>
   <data name="fileInserirEditarServiceStructure" xml:space="preserve">
     <value>(function () {{
     'use strict';

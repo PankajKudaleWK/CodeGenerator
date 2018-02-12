@@ -13,6 +13,7 @@ namespace CshtmlGenerator
         private Logic.CshtmlGenerator _cshtmlGenerator;
         private Logic.JsClassGenerator _jsClassGenerator;
         private Logic.JsControllerGenerator _jsControllerGenerator;
+        private Logic.JsDirectiveGenerator _jsDirectiveGenerator;
 
         public Form1()
         {
@@ -21,6 +22,7 @@ namespace CshtmlGenerator
             _cshtmlGenerator = new Logic.CshtmlGenerator();
             _jsClassGenerator = new Logic.JsClassGenerator();
             _jsControllerGenerator = new Logic.JsControllerGenerator();
+            _jsDirectiveGenerator = new Logic.JsDirectiveGenerator();
             cmbFieldType.DataSource = System.Enum.GetValues(typeof(FieldType));
             cmbDropdownDataSource.DataSource = System.Enum.GetValues(typeof(DropdownDatasource));
             var bindingList = new BindingList<Field>(_fields);
@@ -96,11 +98,8 @@ namespace CshtmlGenerator
 
             if (_fields.Any(f => f.FieldType == FieldType.Grid))
             {
-                var gridDirectiveFileContent = _jsControllerGenerator.GetServiceString(_fields);
-                _jsControllerGenerator.GenerateJsServiceFile(gridDirectiveFileContent, txtModelName.Text);
-
-                var gridDirectiveControllerFileContent = _jsControllerGenerator.GetServiceString(_fields);
-                _jsControllerGenerator.GenerateJsServiceFile(gridDirectiveControllerFileContent, txtModelName.Text);
+                _jsDirectiveGenerator.GenerateJsDirectiveFile(_fields, txtModelName.Text);
+                _jsDirectiveGenerator.GenerateJsDirectiveControllerFile(_fields, txtModelName.Text);
             }
         }
     }
