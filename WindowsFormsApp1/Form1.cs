@@ -1,5 +1,6 @@
 ﻿using CshtmlGenerator.Enum;
 using CshtmlGenerator.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -82,25 +83,33 @@ namespace CshtmlGenerator
 
         private void btnGenerateFiles_Click(object sender, System.EventArgs e)
         {
-            var cshtmlFileText = _cshtmlGenerator.GenerateCshtmlString(_fields);
-            var jsClassFileText = _jsClassGenerator.GetJsClassString(_fields);
-            var jsControllerFileText = _jsControllerGenerator.GenerateJsControllerString(_fields);
-
-            _cshtmlGenerator.GenerateCshtmlFile(cshtmlFileText, txtModelName.Text);
-            _jsClassGenerator.GenerateJsFile(jsClassFileText, txtModelName.Text);
-            _jsControllerGenerator.GenerateJsControllerFile(jsControllerFileText, txtModelName.Text);
-
-            if (_fields.Any(f => f.FieldType == FieldType.Lookup))
+            try
             {
-                var serviceFileContent = _jsControllerGenerator.GetServiceString(_fields);
-                _jsControllerGenerator.GenerateJsServiceFile(serviceFileContent, txtModelName.Text);
-            }
+                var cshtmlFileText = _cshtmlGenerator.GenerateCshtmlString(_fields);
+                var jsClassFileText = _jsClassGenerator.GetJsClassString(_fields);
+                var jsControllerFileText = _jsControllerGenerator.GenerateJsControllerString(_fields);
 
-            if (_fields.Any(f => f.FieldType == FieldType.Grid))
-            {
-                _jsDirectiveGenerator.GenerateJsDirectiveFile(_fields, txtModelName.Text);
-                _jsDirectiveGenerator.GenerateJsDirectiveControllerFile(_fields, txtModelName.Text);
+                _cshtmlGenerator.GenerateCshtmlFile(cshtmlFileText, txtModelName.Text);
+                _jsClassGenerator.GenerateJsFile(jsClassFileText, txtModelName.Text);
+                _jsControllerGenerator.GenerateJsControllerFile(jsControllerFileText, txtModelName.Text);
+
+                if (_fields.Any(f => f.FieldType == FieldType.Lookup))
+                {
+                    var serviceFileContent = _jsControllerGenerator.GetServiceString(_fields);
+                    _jsControllerGenerator.GenerateJsServiceFile(serviceFileContent, txtModelName.Text);
+                }
+
+                if (_fields.Any(f => f.FieldType == FieldType.Grid))
+                {
+                    _jsDirectiveGenerator.GenerateJsDirectiveFile(_fields, txtModelName.Text);
+                    _jsDirectiveGenerator.GenerateJsDirectiveControllerFile(_fields, txtModelName.Text);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

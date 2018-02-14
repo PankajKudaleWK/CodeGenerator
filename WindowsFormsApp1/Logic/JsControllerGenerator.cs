@@ -151,7 +151,7 @@ namespace CshtmlGenerator.Logic
             var lines = fileString.Split('\r');
             var filePath = ConfigurationManager.AppSettings["FilePath"];
             var fileName = modelName + "InserirEditarController" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".js";
-            System.IO.File.WriteAllLines(filePath + fileName, lines);
+            System.IO.File.WriteAllText(filePath + fileName, fileString);
         }
 
         public string GetServiceString(List<Field> fields)
@@ -232,7 +232,7 @@ namespace CshtmlGenerator.Logic
             var lines = fileString.Split('\r');
             var filePath = ConfigurationManager.AppSettings["FilePath"];
             var fileName = modelName + "InserirEditarService" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".js";
-            System.IO.File.WriteAllLines(filePath + fileName, lines);
+            System.IO.File.WriteAllText(filePath + fileName, fileString);
         }
     }
 }

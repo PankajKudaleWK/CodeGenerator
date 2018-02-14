@@ -192,34 +192,42 @@ namespace WindowsFormsApp1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (function () {
-        ///    
-        ///	&apos;use strict&apos;
-        ///;    
-        ///	angular.module(&apos;&apos;)
-        ///    
-        ///	.directive(&apos;{0}Grid&apos;, {0}Grid);
+        ///   Looks up a localized string similar to //it will accept following variables from main page controller
+        /////ctrl.gridItems: &apos;=&apos;, //actual data
+        /////parentId: &apos;@&apos;,                
+        /////parentMethods: = ( save and clear errors)     
         ///
-        ///    
+        ///(function (){{
+        ///    &apos;use strict&apos;;
+        ///    var controllerId = &apos;controllers.{0}GridDirectiveController&apos;;
+        ///    angular.module(&apos;&apos;)
+        ///        .controller(controllerId, {0}GridDirectiveController);
         ///
-        ///	function {0}Grid() {
-        ///        
-        ///		return {
-        ///            
-        ///			restrict: &apos;E&apos;,
-        ///            
-        ///            templateUrl: _userContext.endpoints.StaticContent + &apos;/Views/{0}GridDirective.html&apos;,
+        ///    {0}GridDirectiveController.$inject = [&apos;$controller&apos;,
+        ///        &apos;$scope&apos;,
+        ///        &apos;wkp.framework.services.globalService&apos;,
+        ///        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string fileDirectiveControllerSructure {
+            get {
+                return ResourceManager.GetString("fileDirectiveControllerSructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (function () {{	
+        ///       &apos;use strict&apos;;
+        ///         angular.module(&apos;&apos;).directive(&apos;{0}Grid&apos;, {0}Grid);
         ///
-        ///	                controller: &apos;controllers.monitoramentoPainelGridDirectiveController&apos;,
-        ///
-        ///			scope: {
-        ///				parentMethods: &apos;=&apos;,
-        ///
-        ///				parentId: &apos;@&apos;,
-        ///
-        ///		                resources: &apos;=&apos;,
-        ///
-        ///		                pageMode: &apos;= [rest of string was truncated]&quot;;.
+        ///         function {0}Grid() {{
+        ///              return{{
+        ///                    restrict: &apos;E&apos;,
+        ///                    templateUrl: _userContext.endpoints.StaticContent + &apos;/Views/{0}GridDirective.html&apos;,
+        ///                    controller: &apos;controllers.monitoramentoPainelGridDirectiveController&apos;,
+        ///                    scope: {{
+        ///                          parentMethods: &apos;=&apos;,
+        ///                          parentId: &apos;@&apos;,
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string fileGridDirectiveStructure {
             get {
@@ -233,7 +241,7 @@ namespace WindowsFormsApp1.Resources {
         ///    var serviceName = &apos;services.inserirEditarService&apos;;
         ///
         ///    angular.module(&apos;&apos;)
-        ///               .factory(serviceName, inserirEdiatarService);
+        ///        .factory(serviceName, inserirEdiatarService);
         ///
         ///    inserirEditarService.$inject = [&apos;wkp.constants.navButtonsType&apos;,
         ///        &apos;wkp.constants.navButtonsGroupType&apos;,
@@ -241,7 +249,7 @@ namespace WindowsFormsApp1.Resources {
         ///        &apos;wkp.framework.classes.navButtonGroup&apos;,
         ///        &apos;wkp.framework.services.lookupData&apos;,
         ///        &apos;wkp.constants.lookupConstants&apos;,
-        ///        &apos;wkp.framework.services.gl [rest of string was truncated]&quot;;.
+        ///        &apos;wkp.framework.services.globalHtt [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string fileInserirEditarServiceStructure {
             get {
@@ -273,6 +281,53 @@ namespace WindowsFormsApp1.Resources {
         internal static string functionInitialiseLookupStructure {
             get {
                 return ResourceManager.GetString("functionInitialiseLookupStructure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {{
+        ///                    field: &apos;{0}&apos;,
+        ///                    title: &apos;&lt;input type=\&apos;checkbox\&apos; id=\&apos;selectAll_{{ctrl.grid.name}}\&apos; name=\&apos;selectAll\&apos; class=\&apos;selectedAll\&apos; ng-click=\&apos;ctrl.gridUtils.selectCheckbox($event, ctrl.grid.selectedItems, true, ctrl.grid.name)\&apos; value=\&apos;#={0}#\&apos; /&gt;&apos;,
+        ///                    filterable: false,
+        ///                    sortable: false,
+        ///                    template: &apos;&lt;input type=\&apos;checkbox\&apos; id=\&apos;select\&apos; name=\&apos;select\&apos; class=\&apos;selectedIds_{{ctrl.grid.name}}\&apos; ng-click=\&apos;ctrl.g [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string gridGenericCheckbox {
+            get {
+                return ResourceManager.GetString("gridGenericCheckbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {{
+        ///                    field: &apos;{0}&apos;,
+        ///                    title: gridNames[_userContext.culture].{0},
+        ///                    width: 400
+        ///                }}.
+        /// </summary>
+        internal static string gridGenericColumn {
+            get {
+                return ResourceManager.GetString("gridGenericColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {{
+        ///                    field: &apos;{0}&apos;,
+        ///                    title: &apos; &apos;,
+        ///                    filterable: false,
+        ///                    sortable: false,
+        ///                    template: {1},
+        ///                    width: 34,
+        ///                    locked: true,
+        ///                    lockable: false,
+        ///                    columnMenu: false,
+        ///                    menu: false
+        ///                }}.
+        /// </summary>
+        internal static string gridGenericIcon {
+            get {
+                return ResourceManager.GetString("gridGenericIcon", resourceCulture);
             }
         }
         

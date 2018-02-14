@@ -336,10 +336,9 @@ namespace CshtmlGenerator.Logic
 
         public void GenerateCshtmlFile(string text, string modelName)
         {
-            var lines = text.Split('\r');
             var filePath = ConfigurationManager.AppSettings["FilePath"];
             var fileName = modelName + "InserirEditarController" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".cshtml";
-            System.IO.File.WriteAllLines(filePath + fileName, lines);
+            System.IO.File.WriteAllText(filePath + fileName, text);
         }
     }
 }

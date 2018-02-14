@@ -36,10 +36,9 @@ namespace CshtmlGenerator.Logic
 
         public void GenerateJsFile(string text, string modelName)
         {
-            var lines = text.Split('\r');
             var filePath = ConfigurationManager.AppSettings["FilePath"];
             var fileName = modelName + DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".js";
-            System.IO.File.WriteAllLines(filePath + fileName, lines);
+            System.IO.File.WriteAllText(filePath + fileName, text);
         }
     }
 }

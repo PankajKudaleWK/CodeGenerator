@@ -193,49 +193,132 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
         'services.inserirEditarService'
     ]</value>
   </data>
+  <data name="fileDirectiveControllerSructure" xml:space="preserve">
+    <value>//it will accept following variables from main page controller
+//ctrl.gridItems: '=', //actual data
+//parentId: '@',                
+//parentMethods: = ( save and clear errors)     
+
+(function (){{
+    'use strict';
+    var controllerId = 'controllers.{0}GridDirectiveController';
+    angular.module('')
+        .controller(controllerId, {0}GridDirectiveController);
+
+    {0}GridDirectiveController.$inject = ['$controller',
+        '$scope',
+        'wkp.framework.services.globalService',
+        'wkp.grid.names'];
+
+    function {0}GridDirectiveController($controller,
+        $scope,
+        globalService,
+        gridNames){{
+
+        var ctrl = this;
+        ctrl.needNavButtons = true;
+        var gridSort = [];
+        ctrl.toolbar = $scope.$parent.toolbar;
+
+        var inserirEditarItemController = '';
+
+        ctrl.refreshGrid = function (){{
+            var url = '';
+            globalService.obterEntity(ctrl.parentId, url)
+                .then(function (data){{
+                    var updatedCollection = globalService.getCollectionWithData(data, item);
+                    ctrl.rebindMainGridData(updatedCollection, gridSort);
+                }});
+        }}
+
+        ctrl.pageLoad = function (id) {{
+            ctrl.refreshGrid();
+        }}
+
+        var urls = {{
+            adicionarUrl: '',
+            removerUrl: '',
+            modificarUrl: '',
+            visualizarUrl: ''
+        }}
+
+        $controller('Wkp.Framework.Controllers.gridGlobalController', {{ ctrl: ctrl }});
+
+        var deleteTemplate = "&lt;a title='Excluir' ng-disabled='ctrl.pageMode.detail || ctrl.hideDelete' class='btn btn-link btn-sm' ng-click='dataItem.delete({{0}},{{1}},{{2}})' data-original-title='Apagar'&gt; &lt;i class='fa fa-trash-o fa-2x'&gt;&lt;/i&gt;&lt;/a&gt;";
+        deleteTemplate = deleteTemplate.format(['ctrl.refreshGrid', 'ctrl.parentMethods.deleteErrorCallback', 'ctrl.parentMethods']);
+
+        var editTemplate = "&lt;a title='Editar' ng-disabled='ctrl.pageMode.detail || ctrl.hideEdit' ng-click='dataItem.edit({{0}},{{1}},{{2}},{{3}},{{4}})' class='btn btn-link btn-sm' data-original-title='Editar'&gt; &lt;i class='fa fa-pencil-square-o fa-2x'&gt;&lt;/i&gt;&lt;/a&gt;";
+        editTemplate = editTemplate.format(['ctrl.refreshGrid', 'ctrl.toolbar', 'ctrl.rotinaPermissoes', 'ctrl.childDependentValue', 'ctrl.parentMethods']);
+
+        var visualizeTemplate = "&lt;a title='Visualizar' class='btn btn-link btn-sm' ng-click='dataItem.visualize({{0}}, {{1}}, {{2}},{{3}},{{4}})' data-original-title='Detalhar'&gt;&lt;i class='fa fa-file-text-o fa-2x'&gt;&lt;/i&gt;&lt;/a&gt;";
+        visualizeTemplate = visualizeTemplate.format(['ctrl.refreshGrid', 'ctrl.toolbar', 'ctrl.rotinaPermissoes', 'ctrl.childDependentValue', 'ctrl.parentMethods']);
+
+
+        ctrl.grid.mainGridOptions = {{
+            sortable: {{
+                mode: 'multiple'
+            }},
+            dataSource: new kendo.data.DataSource({{
+                data: [],
+                schema: {{
+                    model: {{
+                        id: '{1}',
+                        fields: {{
+                            {2}
+                        }}
+                    }},
+                    total: function (data) {{
+                        return parseInt(ctrl.gridItems, 10);
+                    }}
+                }},
+                sort: [
+                    //{{ field: 'descricao', dir: 'asc' }}
+                ],
+                pageSize: 10
+            }}),
+            filterable: true,
+            reorderable: true,
+            resizable: true,
+            columnMenu: true,
+            pageable: {{
+                pageSizes: true,
+                buttonCount: 5,
+                refresh: true
+            }},
+            selectable: 'row',
+            dataBound: function () {{
+                ctrl.removeKendoColumnOption();
+                ctrl.gridUtils.carregarEstadoCheckboxs(ctrl.grid.selectedItems, ctrl.grid.name);
+            }},
+            columns: [
+                {3}
+            ]
+        }};
+    }};
+}})();</value>
+  </data>
   <data name="fileGridDirectiveStructure" xml:space="preserve">
-    <value>(function () {
-    
-	'use strict'
-;    
-	angular.module('')
-    
-	.directive('{0}Grid', {0}Grid);
+    <value>(function () {{	
+       'use strict';
+         angular.module('').directive('{0}Grid', {0}Grid);
 
-    
-
-	function {0}Grid() {
-        
-		return {
-            
-			restrict: 'E',
-            
-            templateUrl: _userContext.endpoints.StaticContent + '/Views/{0}GridDirective.html',
-
-	                controller: 'controllers.monitoramentoPainelGridDirectiveController',
-
-			scope: {
-				parentMethods: '=',
-
-				parentId: '@',
-
-		                resources: '=',
-
-		                pageMode: '=',
-		
-                rotinaPermissoes: '='
-	    
-            },
-	    
-            controllerAs: 'ctrl',
-	    
-            bindToController: true
-        
-		};
-
-   }
-
-})();</value>
+         function {0}Grid() {{
+              return{{
+                    restrict: 'E',
+                    templateUrl: _userContext.endpoints.StaticContent + '/Views/{0}GridDirective.html',
+                    controller: 'controllers.monitoramentoPainelGridDirectiveController',
+                    scope: {{
+                          parentMethods: '=',
+                          parentId: '@',
+                          resources: '=',
+                          pageMode: '=',
+                          rotinaPermissoes: '='
+                     }},
+                     controllerAs: 'ctrl',
+                     bindToController: true
+             }};
+        }}
+}})();</value>
   </data>
   <data name="fileInserirEditarServiceStructure" xml:space="preserve">
     <value>(function () {{
@@ -243,7 +326,7 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
     var serviceName = 'services.inserirEditarService';
 
     angular.module('')
-               .factory(serviceName, inserirEdiatarService);
+        .factory(serviceName, inserirEdiatarService);
 
     inserirEditarService.$inject = ['wkp.constants.navButtonsType',
         'wkp.constants.navButtonsGroupType',
@@ -255,16 +338,15 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
         'wkp.framework.services.globalService',
         'wkp.framework.constants.commonResourceConstants'];
 
-    function inserirEditarService(navButtonsType, navButtonsGroupType, NavButton, NavButtonGroup, lookupData, lookupConstants, globalHttpService, $q, globalService,commonResourceConstants) {{
+    function inserirEditarService(navButtonsType, navButtonsGroupType, NavButton, NavButtonGroup, lookupData, lookupConstants, globalHttpService, $q, globalService,commonResourceConstants){{
         {0}
 
-        return {{
+        return{{
             {1}
         }};
 
 	{2}
-    }}    
-}})();</value>
+   }}    }})();</value>
   </data>
   <data name="fileJsControllerStructure" xml:space="preserve">
     <value>(function () {{
@@ -280,6 +362,41 @@ ctrl.page.initObject.resources.labelForTabForNovoCreation);
     <value>function initialiseLookups(){{
     {0}
 }}</value>
+  </data>
+  <data name="gridGenericCheckbox" xml:space="preserve">
+    <value>{{
+                    field: '{0}',
+                    title: '&lt;input type=\'checkbox\' id=\'selectAll_{{ctrl.grid.name}}\' name=\'selectAll\' class=\'selectedAll\' ng-click=\'ctrl.gridUtils.selectCheckbox($event, ctrl.grid.selectedItems, true, ctrl.grid.name)\' value=\'#={0}#\' /&gt;',
+                    filterable: false,
+                    sortable: false,
+                    template: '&lt;input type=\'checkbox\' id=\'select\' name=\'select\' class=\'selectedIds_{{ctrl.grid.name}}\' ng-click=\'ctrl.gridUtils.selectCheckbox($event, ctrl.grid.selectedItems, false, ctrl.grid.name)\' value=\'#={0}#\' /&gt;',
+                    width: 30,
+                    locked: true,
+                    lockable: false,
+                    columnMenu: false,
+                    menu: false
+                }}</value>
+  </data>
+  <data name="gridGenericColumn" xml:space="preserve">
+    <value>{{
+                    field: '{0}',
+                    title: gridNames[_userContext.culture].{0},
+                    width: 400
+                }}</value>
+  </data>
+  <data name="gridGenericIcon" xml:space="preserve">
+    <value>{{
+                    field: '{0}',
+                    title: ' ',
+                    filterable: false,
+                    sortable: false,
+                    template: {1},
+                    width: 34,
+                    locked: true,
+                    lockable: false,
+                    columnMenu: false,
+                    menu: false
+                }}</value>
   </data>
   <data name="inheritControllers" xml:space="preserve">
     <value>$controller('wkp.framework.controllers.baseController', { ctrl: ctrl });
