@@ -18,3 +18,14 @@ Following are some hints to make changes in Code Generator
 ###### 5. Changes in Form tag
  - update resource tagFormStart from htmlGeneratorResource.resx file.
  - update GenerateCshtmlString function in CshtmlGenerator class accordingly.
+
+###### 6. Changes is specific control
+ - Title:     Function: GetTitleString     Resource: fieldTitle
+ - Textbox:   Function: GetTextboxString   Resource: fieldTextBox
+ - TextArea:  Function: GetTextAreaString  Resource: fieldTextArea
+ - Dropdown:  Function: GetDropdownString  Resource: fieldDropdown
+ - Lookup:    Function: GetLookupString    Resource: fieldLookup
+ - Date:      Function: GetDateString      Resource: fieldDateMonth
+ - Time:      Function: GetTimeString      Resource: fieldTime
+ - Number:    Function: GetNumberString    Resource: fieldNumber
+ - Grid:      Function: GetGridString      Resource: fieldTitle
